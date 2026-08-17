@@ -1,0 +1,19 @@
+# Example nginx server block for serving the built admin SPA (dist/).
+# The `try_files` fallback to index.html is what prevents a 404 when the
+# browser is refreshed on a deep route like /ar/projects.
+
+server {
+    listen 80;
+    server_name admin.amarina.example;
+    root /var/www/amarina-admin/dist;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ~* \.(?:css|js|svg|png|jpg|jpeg|webp|woff2?)$ {
+        expires 30d;
+        access_log off;
+    }
+}

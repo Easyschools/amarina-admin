@@ -1,0 +1,11 @@
+# SPA fallback: any request that isn't an existing file/directory is served
+# index.html so vue-router (history mode) can take over — this is what
+# prevents a hard refresh on a deep route like /ar/projects from 404ing.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

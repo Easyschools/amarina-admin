@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-brand-50: #eef5fb;
+  --color-brand-100: #d6e7f4;
+  --color-brand-500: #1c76c6;
+  --color-brand-600: #145a9c;
+  --color-navy-900: #0f2a4a;
+  --color-navy-800: #15385f;
+}
+
+html {
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+html[dir='rtl'] {
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+/* RTL: mirror the sidebar/content layout automatically via logical properties
+   used throughout the app (ps-/pe-/ms-/me-/start-/end-), so this file only
+   needs to handle the couple of spots where a literal left/right sneaks in. */
