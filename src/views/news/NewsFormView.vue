@@ -61,7 +61,7 @@ async function loadPost() {
   form.meta_title = normalizeTranslatable(data.meta_title)
   form.meta_description = normalizeTranslatable(data.meta_description)
   form.published_at = data.published_at ? data.published_at.slice(0, 10) : ''
-  existingFeaturedImage.value = data.featured_image?.card ?? null
+  existingFeaturedImage.value = data.featured_image?.card || data.featured_image?.url || null
 }
 
 onMounted(async () => {

@@ -113,7 +113,7 @@ async function saveImage(row: SettingRow) {
         />
         <MediaUploader
           v-else-if="row.type === 'image'"
-          :existing-url="row.image?.card"
+          :existing-url="row.image?.card || row.image?.url"
           @change="(f) => (pendingFiles[row.id] = f)"
         />
       </div>

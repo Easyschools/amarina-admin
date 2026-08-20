@@ -27,7 +27,7 @@ const columns: Column[] = [
 const displayRows = computed(() =>
   rows.value.map((p) => ({
     id: p.id,
-    featured_image: p.featured_image?.thumb ?? null,
+    featured_image: p.featured_image?.thumb || p.featured_image?.url || null,
     title: p.title?.[localeStore.current] ?? p.title?.en,
     category: p.category?.name?.[localeStore.current] ?? p.category?.name?.en ?? t('common.uncategorized'),
     published_at: p.published_at ? String(p.published_at).slice(0, 10) : '—',

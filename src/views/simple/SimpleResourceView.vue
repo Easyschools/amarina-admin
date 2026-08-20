@@ -53,7 +53,7 @@ const displayRows = computed(() =>
     const out: Record<string, any> = { id: row.id }
     config.value.listColumns.forEach((c) => {
       if (c.image) {
-        out[c.key] = row[c.key]?.thumb ?? null
+        out[c.key] = row[c.key]?.thumb || row[c.key]?.url || null
       } else if (c.translatable) {
         out[c.key] = row[c.key]?.[localeStore.current] ?? row[c.key]?.en ?? ''
       } else {
@@ -110,7 +110,11 @@ function existingImageUrl(): string | null {
   if (!editingId.value || !config.value.mediaField) return null
   const row = rows.value.find((r) => r.id === editingId.value)
   const mediaFieldKey = config.value.fields.find((f) => f.type === 'image')?.key
-  return row?.[mediaFieldKey ?? '']?.card ?? null
+  const media = row?.[mediaFieldKey ?? '']
+  // Fall back to the original upload if a resized conversion is missing
+  // (e.g. a conversion job that failed before a since-fixed bug) rather
+  // than showing a broken image icon.
+  return media?.card || media?.url || null
 }
 
 async function save() {

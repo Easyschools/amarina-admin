@@ -72,7 +72,7 @@ async function loadProject() {
   form.is_featured = data.is_featured
   form.order = data.order
   form.published_at = data.published_at ? data.published_at.slice(0, 10) : ''
-  existingFeaturedImage.value = data.featured_image?.card ?? null
+  existingFeaturedImage.value = data.featured_image?.card || data.featured_image?.url || null
   existingGallery.value = data.gallery ?? []
 }
 
@@ -203,7 +203,7 @@ async function removeGalleryImage(mediaId: number) {
         <label class="mb-1 block text-sm font-medium text-slate-700">{{ t('common.gallery') }}</label>
         <div v-if="existingGallery.length" class="mb-3 flex flex-wrap gap-2">
           <div v-for="img in existingGallery" :key="img.id" class="group relative h-20 w-20">
-            <img :src="img.thumb" class="h-full w-full rounded-lg object-cover" alt="" />
+            <img :src="img.thumb || img.url" class="h-full w-full rounded-lg object-cover" alt="" />
             <button
               type="button"
               class="absolute -top-1.5 -end-1.5 hidden h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs text-white group-hover:flex"
