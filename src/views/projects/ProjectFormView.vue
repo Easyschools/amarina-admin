@@ -121,7 +121,7 @@ async function removeGalleryImage(mediaId: number) {
       {{ isEdit ? t('common.edit') : t('common.add') }} — {{ t('nav.projects') }}
     </h1>
 
-    <div class="space-y-6 rounded-xl border border-slate-200 bg-white p-6">
+    <div class="space-y-6 rounded-xl border border-slate-200 bg-white p-4 sm:p-6">
       <TranslatableInput v-model="form.title" label="Title" required />
 
       <div>
@@ -129,7 +129,7 @@ async function removeGalleryImage(mediaId: number) {
         <input v-model="form.slug" dir="ltr" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label class="mb-1 block text-sm font-medium text-slate-700">{{ t('common.category') }}</label>
           <select v-model="form.project_category_id" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm">
@@ -149,7 +149,7 @@ async function removeGalleryImage(mediaId: number) {
 
       <TranslatableInput v-model="form.location" label="Location" />
 
-      <div class="grid grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <div>
           <label class="mb-1 block text-sm font-medium text-slate-700">Bedrooms Min</label>
           <input v-model.number="form.bedrooms_min" type="number" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
@@ -178,7 +178,7 @@ async function removeGalleryImage(mediaId: number) {
         </div>
       </details>
 
-      <div class="grid grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div>
           <label class="mb-1 block text-sm font-medium text-slate-700">{{ t('common.order') }}</label>
           <input v-model.number="form.order" type="number" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
@@ -187,7 +187,7 @@ async function removeGalleryImage(mediaId: number) {
           <label class="mb-1 block text-sm font-medium text-slate-700">Published Date</label>
           <input v-model="form.published_at" type="date" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
         </div>
-        <label class="mt-6 flex items-center gap-2 text-sm text-slate-700">
+        <label class="flex items-center gap-2 text-sm text-slate-700 sm:mt-6">
           <input v-model="form.is_featured" type="checkbox" class="rounded border-slate-300" />
           {{ t('common.featured') }}
         </label>

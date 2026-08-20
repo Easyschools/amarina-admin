@@ -187,7 +187,7 @@ async function move(row: any, direction: -1 | 1) {
 
     <Teleport to="body">
       <div v-if="showForm" class="fixed inset-0 z-40 flex items-stretch justify-end bg-slate-900/40">
-        <div class="flex w-full max-w-xl flex-col overflow-y-auto bg-white p-6 shadow-2xl">
+        <div class="flex w-full max-w-xl flex-col overflow-y-auto bg-white p-4 shadow-2xl sm:p-6">
           <h2 class="mb-4 text-lg font-bold text-navy-900">
             {{ editingId ? t('common.edit') : t('common.add') }} — {{ t(config.titleKey) }}
           </h2>

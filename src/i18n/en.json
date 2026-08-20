@@ -18,7 +18,8 @@
     "leads": "Leads",
     "contactSubmissions": "Contact Submissions",
     "newsletter": "Newsletter Subscribers",
-    "logout": "Log out"
+    "logout": "Log out",
+    "menu": "Menu"
   },
   "auth": {
     "signIn": "Sign in to Amarina Admin",

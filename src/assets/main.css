@@ -30,3 +30,16 @@ body {
 /* RTL: mirror the sidebar/content layout automatically via logical properties
    used throughout the app (ps-/pe-/ms-/me-/start-/end-), so this file only
    needs to handle the couple of spots where a literal left/right sneaks in. */
+
+/* iOS Safari auto-zooms the whole page on focusing any text input/select/
+   textarea styled below 16px — every form field in this app uses
+   text-sm (14px) for density on desktop, so without this override every
+   tap into a field on an iPhone would jerk the viewport in and out of
+   zoom. 16px only below the sm breakpoint keeps desktop density intact. */
+@media (max-width: 639px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
