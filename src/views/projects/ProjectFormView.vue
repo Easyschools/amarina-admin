@@ -34,10 +34,6 @@ const form = reactive({
   slug: '',
   location: { en: '', ar: '' },
   status: 'ready' as (typeof STATUSES)[number],
-  bedrooms_min: '' as number | '',
-  bedrooms_max: '' as number | '',
-  price_from: '' as number | '',
-  currency: 'EGP',
   description: { en: '', ar: '' },
   meta_title: { en: '', ar: '' },
   meta_description: { en: '', ar: '' },
@@ -62,10 +58,6 @@ async function loadProject() {
   form.slug = data.slug
   form.location = normalizeTranslatable(data.location)
   form.status = data.status
-  form.bedrooms_min = data.bedrooms_min ?? ''
-  form.bedrooms_max = data.bedrooms_max ?? ''
-  form.price_from = data.price_from ?? ''
-  form.currency = data.currency ?? 'EGP'
   form.description = normalizeTranslatable(data.description)
   form.meta_title = normalizeTranslatable(data.meta_title)
   form.meta_description = normalizeTranslatable(data.meta_description)
@@ -148,25 +140,6 @@ async function removeGalleryImage(mediaId: number) {
       </div>
 
       <TranslatableInput v-model="form.location" label="Location" />
-
-      <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <div>
-          <label class="mb-1 block text-sm font-medium text-slate-700">Bedrooms Min</label>
-          <input v-model.number="form.bedrooms_min" type="number" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
-        </div>
-        <div>
-          <label class="mb-1 block text-sm font-medium text-slate-700">Bedrooms Max</label>
-          <input v-model.number="form.bedrooms_max" type="number" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
-        </div>
-        <div>
-          <label class="mb-1 block text-sm font-medium text-slate-700">Price From</label>
-          <input v-model.number="form.price_from" type="number" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
-        </div>
-        <div>
-          <label class="mb-1 block text-sm font-medium text-slate-700">Currency</label>
-          <input v-model="form.currency" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
-        </div>
-      </div>
 
       <TranslatableInput v-model="form.description" label="Description" textarea />
 

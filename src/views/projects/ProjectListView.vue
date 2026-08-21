@@ -21,8 +21,8 @@ const columns: Column[] = [
   { key: 'featured_image', label: '', image: true },
   { key: 'title', label: 'Title' },
   { key: 'category', label: 'common.category' },
+  { key: 'location', label: 'Location' },
   { key: 'status', label: 'common.status' },
-  { key: 'price_from', label: 'Price From' },
 ]
 
 const displayRows = computed(() =>
@@ -31,8 +31,8 @@ const displayRows = computed(() =>
     featured_image: p.featured_image?.thumb || p.featured_image?.url || null,
     title: p.title?.[localeStore.current] ?? p.title?.en,
     category: p.category?.name?.[localeStore.current] ?? p.category?.name?.en ?? t('common.uncategorized'),
+    location: p.location?.[localeStore.current] ?? p.location?.en ?? '—',
     status: p.status,
-    price_from: p.price_from ? `${p.currency} ${Number(p.price_from).toLocaleString()}` : '—',
   })),
 )
 
